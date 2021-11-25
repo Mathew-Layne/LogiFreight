@@ -59,7 +59,7 @@ class Register extends Component
             'city' => $credentials['city'],
             'parish' => $credentials['parish'],
             'phone' => $credentials['phone'],
-            'mailbox' => 'LF'.random_int(5),
+            'mailbox' => 'LF'.random_int(10000, 99999),
         ]);
 
         $this->registered = true;
