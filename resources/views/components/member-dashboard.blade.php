@@ -166,7 +166,7 @@
                     class="flex items-center justify-start md:justify-center pl-3 w-14 md:w-64 h-14 bg-blue-800 dark:bg-gray-800 border-none">
                     <img class="w-7 h-7 md:w-10 md:h-10 mr-2 rounded-full overflow-hidden"
                         src="https://therminic2018.eu/wp-content/uploads/2018/07/dummy-avatar.jpg" />
-                    <span class="hidden md:block">ADMIN</span>
+                    <span class="hidden md:block">MEMBER</span>
                 </div>
                 <div class="flex justify-between items-center h-14 bg-blue-800 dark:bg-gray-800 header-right">
 
@@ -260,7 +260,7 @@
                                 <span class="inline-flex justify-center items-center ml-4">
                                     <i class="far fa-users-crown"></i>
                                 </span>
-                                <span class="ml-2 text-sm tracking-wide truncate">Items</span>
+                                <span class="ml-2 text-sm tracking-wide truncate">Track Items</span>
 
                             </a>
                         </li>
@@ -270,7 +270,7 @@
                                 <span class="inline-flex justify-center items-center ml-4">
                                     <i class="fad fa-spa"></i>
                                 </span>
-                                <span class="ml-2 text-sm tracking-wide truncate">Manifest</span>
+                                <span class="ml-2 text-sm tracking-wide truncate">Quick Alerts</span>
                             </a>
                         </li>
                         <li>
@@ -279,7 +279,7 @@
                                 <span class="inline-flex justify-center items-center ml-4">
                                     <i class="far fa-calendar-check"></i>
                                 </span>
-                                <span class="ml-2 text-sm tracking-wide truncate">Members</span>
+                                <span class="ml-2 text-sm tracking-wide truncate">Schedule Pickup</span>
 
                             </a>
                         </li>
@@ -289,7 +289,7 @@
                                 <span class="inline-flex justify-center items-center ml-4">
                                     <i class="far fa-box-full"></i>
                                 </span>
-                                <span class="ml-2 text-sm tracking-wide truncate">Quick Alerts</span>
+                                <span class="ml-2 text-sm tracking-wide truncate">Delivery</span>
                             </a>
                         </li>
                         

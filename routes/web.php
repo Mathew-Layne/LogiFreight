@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LogoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,13 +18,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('login', 'login')->name('login');
-Route::view('register', 'register')->name('register');
+
+Route::view('login', 'login')->name('login')->middleware('authorized');
+Route::view('register', 'register')->name('register')->middleware('authorized');
+Route::post('logout', [LogoutController::class, 'logout'])->name('logout');
 Route::view('alert', 'quickAlerts')->name('quickAlerts');
 
 
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::view('/dashboard/admin', 'dashboard')->name('dashboard')->middleware('admin');
-    Route::view('/dashboard/member', 'dashboard')->name('dashboard.member')->middleware('member');
+    Route::view('/dashboard', 'dashboard')->name('dashboard')->middleware('dashboardredirect');
+    Route::view('/dashboard/admin/items', 'items')->name('items');
+    Route::view('/dashboard/admin/members', 'members')->name('members');
+    Route::view('/dashboard/admin/manifest', 'manifest')->name('manifest');
+    Route::view('/dashboard/admin/alerts', 'alerts')->name('alerts');
+    Route::view('/dashboard/admin', 'dashboard')->name('dashboard.admin')->middleware('admin');
+    Route::view('/dashboard/member', 'member-dashboard')->name('dashboard.member')->middleware('member');
 });

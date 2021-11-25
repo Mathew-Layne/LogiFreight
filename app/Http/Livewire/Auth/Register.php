@@ -66,7 +66,7 @@ class Register extends Component
         ]);
 
         $this->registered = true;
-        return redirect()->route('login');
+        return redirect()->route('dashboard');
     }
 
     

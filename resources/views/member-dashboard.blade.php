@@ -1,7 +1,7 @@
 <x-header>
-    <x-dashboard>
+    <x-member-dashboard>
 
         @livewire('member-dashboard')
     
-    </x-dashboard>
+    </x-member-dashboard>
 </x-header>
