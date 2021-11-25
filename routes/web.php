@@ -19,9 +19,4 @@ Route::get('/', function () {
 
 Route::view('login', 'login')->name('login');
 Route::view('register', 'register')->name('register');
-
-Route::group(['middleware' => 'auth'], function(){
-
-    Route::view('/dashboard/admin', 'dashboard')->name('dashboard')->middleware('admin');
-    Route::view('/dashboard/member', 'dashboard')->name('dashboard.member')->middleware('member');
-});
+Route::view('alert', 'quickAlerts')->name('quickAlerts');
