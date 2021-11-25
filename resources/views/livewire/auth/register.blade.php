@@ -66,9 +66,9 @@
             </div>
 
             <div>
-                <label for="email">City</label>
+                <label for="city">City</label>
                 <div class="mb-2">
-                    <input wire:model='email' class="border-black border-2 rounded-md w-full py-1 px-4" type="text" name="city" id="city">
+                    <input wire:model='city' class="border-black border-2 rounded-md w-full py-1 px-4" type="text" name="city" id="city">
                     <div>@error('city')<span class="text-xs text-red-600 -mb-2">{{ $message }}</span>@enderror</div>
                 </div>
             </div>
@@ -84,7 +84,7 @@
              <div>
                  <label for="email">Phone</label>
                  <div class="mb-2">
-                     <input wire:model='parish' class="border-black border-2 rounded-md w-full py-1 px-4" type="text" name="phone" id="phone">
+                     <input wire:model='phone' class="border-black border-2 rounded-md w-full py-1 px-4" type="text" name="phone" id="phone">
                      <div>@error('phone')<span class="text-xs text-red-600 -mb-2">{{ $message }}</span>@enderror</div>
                  </div>
              </div>

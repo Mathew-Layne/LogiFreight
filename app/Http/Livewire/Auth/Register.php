@@ -23,7 +23,8 @@ class Register extends Component
     {
 
         $this->validate([
-            'name' => 'string',
+            'first_name' => 'string',
+            'last_name' => 'string',
         ]);
     }
 
@@ -39,19 +40,21 @@ class Register extends Component
     {
 
         $credentials = $this->validate([
-            'name' => 'required|string',
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8|same:passwordConfirmation',
-            'trn' => 'required|unique:user,trn',
+            'trn' => 'required|unique:users,trn',
             'address' => 'required|string',
             'city' => 'required|string',
             'parish' =>'required',
-            'phone' => 'required,'
+            'phone' => 'required',
 
         ]);
 
         User::create([
-            'name' => $credentials['name'],
+            'first_nm' => $credentials['first_name'],
+            'last_nm' =>$credentials['last_name'],
             'email' => $credentials['email'],
             'password' => Hash::make($credentials['password']),
             'trn'=> $credentials['trn'],

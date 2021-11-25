@@ -17,9 +17,16 @@ class AdminUserSeeder extends Seeder
     {
         //
         User::create([
-            'name'=> 'admin',
+            'first_nm'=> 'admin',
+            'last_nm' => 'admin',
             'email' => 'admin@email.com',
             'password' => Hash::make('password'),
+            'trn' => "111-111-111",
+            'address' => 'Church Street',
+            'city' => 'Kingston',
+            'parish' => 'Kingston',
+            'phone' => '124-345-4567',
+            'mailbox'=> 'LF10001',
             'user_type' => 'Admin',
         ]);
     }
