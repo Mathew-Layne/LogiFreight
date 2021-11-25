@@ -15,11 +15,13 @@ class CreateQuickAlertsTable extends Migration
     {
         Schema::create('quick_alerts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->string('courier');
             $table->string('tracking_no');
             $table->string('description');
             $table->decimal('value');
             $table->decimal('weight');
+            $table->string('invoice');
             $table->timestamps();
         });
     }
