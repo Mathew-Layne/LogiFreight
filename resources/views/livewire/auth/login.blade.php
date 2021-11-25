@@ -80,7 +80,7 @@
                     </div>
                 </button>--}}
 
-                <p class="mt-4">Need an account? <a href="#"
+                <p class="mt-4">Need an account? <a href="{{ route('register') }}"
                         class="text-blue-500 hover:text-blue-700 font-semibold">Create
                         an
                         account</a></p>

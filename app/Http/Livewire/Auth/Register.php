@@ -9,11 +9,8 @@ use Livewire\Component;
 class Register extends Component
 {
 
-    public $name;
-    public $email;
-    public $password;
-    public $passwordConfirmation;
-    public $registered = true;
+    public $first_name, $last_name, $email, $password, $passwordConfirmation, $city, $address, $phone, $parish, $trn;
+    public $registered = false;
 
     public function updatedEmail()
     {
