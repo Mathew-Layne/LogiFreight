@@ -52,7 +52,7 @@
                     <div class="mt-5 w-full flex space-x-3">
                         <div class="w-1/2">
                             <label for="password" class="sc-bqyKva ePvcBv">Password</label>
-                            <input type="text" wire:model='password'
+                            <input type="password" wire:model='password'
                                 class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent "
                                 placeholder="Enter Password">
                                 <div>@error('password')<span class="text-xs text-red-600 -mb-2">{{ $message }}</span>@enderror
@@ -60,8 +60,8 @@
                         </div>
                     
                         <div class="w-1/2 ">
-                            <label for="email" class="sc-bqyKva ePvcBv">Confirm Password</label>
-                            <input type="text" wire:model='passwordConfirmation'
+                            <label for="password" class="sc-bqyKva ePvcBv">Confirm Password</label>
+                            <input type="password" wire:model='passwordConfirmation'
                                 class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent "
                                 placeholder="Re-Enter Password">
                                 <div>@error('password')<span class="text-xs text-red-600 -mb-2">{{ $message }}</span>@enderror
@@ -72,7 +72,7 @@
                     <div class="mt-5 w-full flex space-x-3">
                         <div class="w-1/2">
                             <label for="email" class="sc-bqyKva ePvcBv">Contact Number</label>
-                            <input type="text" wire:model='phone'
+                            <input type="tel" wire:model='phone'
                                 class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent "
                                 placeholder="Enter Phone Number">
                                 <div>@error('phone')<span class="text-xs text-red-600 -mb-2">{{ $message }}</span>@enderror
@@ -80,8 +80,8 @@
                         </div>
                     
                         <div class="w-1/2 ">
-                            <label for="email" class="sc-bqyKva ePvcBv">TRN</label>
-                            <input type="text" wire:model='trn'
+                            <label for="trn" class="sc-bqyKva ePvcBv">TRN</label>
+                            <input type="number" wire:model='trn'
                                 class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent "
                                 placeholder="Enter TRN">
                                 <div>@error('trn')<span class="text-xs text-red-600 -mb-2">{{ $message }}</span>@enderror
@@ -91,7 +91,7 @@
 
                     <div class="mt-5">
                         <label for="email" class="sc-bqyKva ePvcBv">Street Address</label>
-                        <input type="password" wire:model="address"
+                        <input type="text" wire:model="address"
                             class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent  "
                             placeholder="Enter Street Address">
                             <div>@error('address')<span class="text-xs text-red-600 -mb-2">{{ $message }}</span>@enderror
@@ -101,16 +101,16 @@
                     <div class="mt-5 w-full flex space-x-3">
                         <div class="w-1/2">
                             <label for="email" class="sc-bqyKva ePvcBv">City</label>
-                            <input type="text"
+                            <input type="text" wire:model="city"
                                 class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent "
                                 placeholder="Enter City">
-                                <div>@error('address')<span class="text-xs text-red-600 -mb-2">{{ $message }}</span>@enderror
+                                <div>@error('city')<span class="text-xs text-red-600 -mb-2">{{ $message }}</span>@enderror
                                 </div>
                         </div>
                     
                         <div class="w-1/2 ">
-                            <label for="email" class="sc-bqyKva ePvcBv">Parish</label>
-                            <input type="text"
+                            <label for="parish" class="sc-bqyKva ePvcBv">Parish</label>
+                            <input type="text" wire:model="parish"
                                 class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent "
                                 placeholder="Enter Parish">
                                 <div>@error('parish')<span class="text-xs text-red-600 -mb-2">{{ $message }}</span>@enderror
@@ -130,7 +130,7 @@
 
                     <div class="mt-10">
                         <input type="submit" value="Register Now"
-                            class="py-3 bg-green-500 text-white w-full rounded hover:bg-green-600">
+                            class="py-3 bg-blue-500 text-white w-full rounded hover:bg-blue-600">
                     </div>
                 </form>
                 <a class="" href="/login" data-test="Link"><span
