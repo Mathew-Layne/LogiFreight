@@ -17,7 +17,7 @@ class MemberMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!Auth::user()->user_type == "Member") {
+        if (Auth::user()->user_type != "Member") {
             return redirect()->route('login');
         }
         
