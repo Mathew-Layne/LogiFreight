@@ -1,4 +1,5 @@
 <div>
+     @if($addAlert)
     <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 mt-20">
         <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">Quick Alert</h2>
 
@@ -68,7 +69,7 @@
             <div></div>
            @if ($image)
            Photo Preview:
-           <img src="{{ $image->temporaryUrl() }}">
+           <img src="{{ $image->temporaryUrl() }}" width="350px">
            @endif
            </div>
 
@@ -78,5 +79,8 @@
             </div>
         </form>
     </section>
+    @endif
+
+
 
 </div>

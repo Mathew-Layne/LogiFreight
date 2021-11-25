@@ -9,6 +9,7 @@ use Livewire\WithFileUploads;
 class QuikAlerts extends Component
 {
     use WithFileUploads;
+    public $addAlert = true;
     public $weight, $trackingNo, $shipper, $value, $image, $description;
 
     protected $rules = [
