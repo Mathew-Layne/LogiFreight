@@ -10,6 +10,6 @@ class QuickAlert extends Model
     use HasFactory;
 
     protected $fillable = [
-        'courier', 'tracking_no', 'description',	'value', 'weight'
+        'user_id', 'courier', 'tracking_no', 'description',	'value', 'weight', 'invoice',
     ];
 }

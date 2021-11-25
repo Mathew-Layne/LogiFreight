@@ -204,7 +204,9 @@
                             <div class="block w-px h-6 mx-3 bg-gray-400 dark:bg-gray-700"></div>
                         </li>
                         <li>
-                            <form method="post" action="{{ route('logout') }}">
+                            <form method="post" action=
+                            {{-- "{{ route('logout') }}" --}}
+                            >
                                 @csrf
                                 <button type="submit" class="flex items-center mr-4 hover:text-blue-100">
 
@@ -238,7 +240,8 @@
                             </div>
                         </li>
                         <li>
-                            <a href="{{ route('dashboard') }}"
+                            <a href=
+                            {{-- "{{ route('dashboard') }}" --}}
                                 class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
                                 <span class="inline-flex justify-center items-center ml-4">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
