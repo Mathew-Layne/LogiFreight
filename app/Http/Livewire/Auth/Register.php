@@ -42,6 +42,11 @@ class Register extends Component
             'name' => 'required|string',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8|same:passwordConfirmation',
+            'trn' => 'required|unique:user,trn',
+            'address' => 'required|string',
+            'city' => 'required|string',
+            'parish' =>'required',
+            'phone' => 'required,'
 
         ]);
 
@@ -49,6 +54,12 @@ class Register extends Component
             'name' => $credentials['name'],
             'email' => $credentials['email'],
             'password' => Hash::make($credentials['password']),
+            'trn'=> $credentials['trn'],
+            'address' =>$credentials['address'],
+            'city' => $credentials['city'],
+            'parish' => $credentials['parish'],
+            'phone' => $credentials['phone'],
+            'mailbox' => 'LF'.random_int(5),
         ]);
 
         $this->registered = true;
