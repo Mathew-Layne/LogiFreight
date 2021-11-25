@@ -204,9 +204,7 @@
                             <div class="block w-px h-6 mx-3 bg-gray-400 dark:bg-gray-700"></div>
                         </li>
                         <li>
-                            <form method="post" action=
-                            {{-- "{{ route('logout') }}" --}}
-                            >
+                            <form method="post" action="{{ route('logout') }}">
                                 @csrf
                                 <button type="submit" class="flex items-center mr-4 hover:text-blue-100">
 
@@ -255,7 +253,7 @@
                                     class="hidden md:block px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-blue-500 bg-indigo-50 rounded-full">New</span>
                             </a>
                         </li>
-                        
+
                         <li>
                             <a href="{{ route('items') }}"
                                 class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
@@ -294,7 +292,7 @@
                                 <span class="ml-2 text-sm tracking-wide truncate">Quick Alerts</span>
                             </a>
                         </li>
-                        
+
                         <li class="px-5 hidden md:block">
                             <div class="flex flex-row items-center mt-5 h-8">
                                 <div class="text-sm font-light tracking-wide text-gray-400 uppercase">Settings</div>
