@@ -40,9 +40,9 @@
                         @else
                         <li class="flex items-center"> <a
                                 class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                                href="{{ url('/register') }}"><span class="inline-block ml-2">Register</span></a> </li>
+                                href="{{ route('register') }}"><span class="inline-block ml-2">Register</span></a> </li>
     
-                        <li class="flex items-center"><a href="{{ url('/login') }}"> <button
+                        <li class="flex items-center"><a href="{{ route('login') }}"> <button
                                     class="bg-white text-gray-800 active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
                                     type="button" style="transition: all 0.15s ease 0s;"> <i
                                         class="fas fa-arrow-alt-circle-right"></i>Login
