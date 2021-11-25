@@ -15,7 +15,7 @@ class CreateInvoicesTable extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('member_id')->constrained('members')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('package_id')->constrained('packages')->onUpdate('cascade')->onDelete('cascade');
             $table->decimal('estimated_cost');
             $table->decimal('total_cost');

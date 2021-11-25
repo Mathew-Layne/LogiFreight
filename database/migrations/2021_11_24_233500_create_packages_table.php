@@ -15,7 +15,7 @@ class CreatePackagesTable extends Migration
     {
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('member_id')->constrained('members')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('package_type_id')->constrained('package_types')->onDelete('cascade')->onUpdate('cascade');
             $table->string('mailbox');
             $table->decimal('weight', 8,2);
