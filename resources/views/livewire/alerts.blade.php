@@ -26,11 +26,11 @@
                         <td class="px-4 py-3 text-sm">{{ $alert->tracking_no }}</td>
                         <td class="px-4 py-3 text-sm">{{ $alert->weight  }}</td>
                         <td class="px-4 py-3 text-sm"><a href="{{ $alert->invoice }}">Invoice</a></td>
-                        <td class="px-4 py-3 text-sm">{{ $alert->created_at }}</td
+                        <td class="px-4 py-3 text-sm">{{ $alert->created_at }}</td>
                     </tr>
                     @empty
                     <tr>
-                        <td>No Records</td>
+                        <td class="text-center py-3" colspan="6">No Records</td>
                     </tr>
                     @endforelse
 
