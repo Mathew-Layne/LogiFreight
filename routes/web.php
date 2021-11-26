@@ -28,10 +28,10 @@ Route::post('logout', [LogoutController::class, 'logout'])->name('logout');
 Route::group(['middleware' => 'auth'], function () {
 
     Route::view('/dashboard', 'dashboard')->name('dashboard')->middleware('dashboardredirect');
-    Route::view('/dashboard/admin/items', 'items')->name('items');
-    Route::view('/dashboard/admin/members', 'members')->name('members');
-    Route::view('/dashboard/admin/manifest', 'manifest')->name('manifest');
-    Route::view('/dashboard/admin/alerts', 'alerts')->name('alerts');
+    Route::view('/dashboard/admin/items', 'items')->name('items')->middleware('admin');
+    Route::view('/dashboard/admin/members', 'members')->name('members')->middleware('admin');
+    Route::view('/dashboard/admin/manifest', 'manifest')->name('manifest')->middleware('admin');
+    Route::view('/dashboard/admin/alerts', 'alerts')->name('alerts')->middleware('admin');
     Route::view('/dashboard/admin', 'dashboard')->name('dashboard.admin')->middleware('admin');
     Route::view('/dashboard/member', 'member-dashboard')->name('dashboard.member')->middleware('member');
     Route::view('/dashboard/member/alert', 'quickAlerts')->name('quickAlerts')->middleware('member');

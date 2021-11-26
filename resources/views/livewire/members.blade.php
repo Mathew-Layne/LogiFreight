@@ -2,7 +2,7 @@
      <!-- Client Table -->
      <div class="mt-4 mx-4">
          <div class="md:col-span-2 xl:col-span-3 mb-3">
-             <h3 class="text-2xl font-semibold">Pre-Alerts</h3>
+             <h3 class="text-2xl font-semibold">Members</h3>
          </div>
          <div class="w-full overflow-hidden rounded-lg shadow-xs">
 
@@ -35,7 +35,7 @@
 
                              @empty
                          <tr>
-                             <td>No Records</td>
+                             <td class="text-center py-3" colspan="7">No Records</td>
                          </tr>
                          @endforelse
 
