@@ -1,5 +1,5 @@
 <x-header>
-<x-dashboard>
+<x-member-dashboard>
     @livewire('quik-alerts')
-</x-dashboard>
+</x-member-dashboard>
 </x-header>
