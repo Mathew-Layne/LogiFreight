@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Package;
 use App\Models\QuickAlert;
+use App\Models\User;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -36,6 +38,18 @@ class QuikAlerts extends Component
             'weight' => $this->weight,
             'invoice' => $filePath,
         ]);  
+
+        $mailbox =User::where('id', auth()->user()->id)->value('mailbox');
+
+        Package::create([
+            'user_id' => auth()->user()->id,
+            'shipper' => $this->shipper,
+            'shippers_tracking_no' => $this->trackingNo,
+            'estimated_cost' =>$this->value,
+            'weight'=> $this->weight,
+            'mailbox' =>$mailbox,
+        ]);
+        return redirect()->route('quickAlerts');
 
     }
 
