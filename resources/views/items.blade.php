@@ -1,7 +1,7 @@
 <x-header>
 <x-dashboard>
 
-    @livewire('alerts')
+    @livewire('items')
 
 </x-dashboard>
 </x-header>
