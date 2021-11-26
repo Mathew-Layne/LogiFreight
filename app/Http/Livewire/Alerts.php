@@ -2,12 +2,19 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\QuickAlert;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Alerts extends Component
 {
+    use WithPagination;
+
     public function render()
     {
-        return view('livewire.alerts');
+        $alerts = QuickAlert::paginate(5);
+        return view('livewire.alerts', [
+            'alerts' => $alerts,
+        ]);
     }
 }

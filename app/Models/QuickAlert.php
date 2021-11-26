@@ -12,4 +12,8 @@ class QuickAlert extends Model
     protected $fillable = [
         'user_id', 'courier', 'tracking_no', 'description',	'value', 'weight', 'invoice',
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

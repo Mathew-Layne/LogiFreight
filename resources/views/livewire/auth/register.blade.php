@@ -81,7 +81,7 @@
                     
                         <div class="w-1/2 ">
                             <label for="trn" class="sc-bqyKva ePvcBv">TRN</label>
-                            <input type="number" wire:model='trn'
+                            <input type="text" wire:model='trn' inputmode="numeric"
                                 class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent "
                                 placeholder="Enter TRN">
                                 <div>@error('trn')<span class="text-xs text-red-600 -mb-2">{{ $message }}</span>@enderror
