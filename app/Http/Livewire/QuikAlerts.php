@@ -28,7 +28,7 @@ class QuikAlerts extends Component
 
         $filePath = $this->image->store('invoices', 'public');
          
-        dd($filePath);
+    
         QuickAlert::create([
             'user_id' =>auth()->user()->id,
             'courier' => $this->shipper,
@@ -43,6 +43,7 @@ class QuikAlerts extends Component
 
         Package::create([
             'user_id' => auth()->user()->id,
+            'package_type_id' => 1,
             'shipper' => $this->shipper,
             'shippers_tracking_no' => $this->trackingNo,
             'estimated_cost' =>$this->value,

@@ -73,7 +73,7 @@ class Members extends Component
 
     public function render()
     {
-        $members = User::where('user_type', 'Member')->paginate(5);
+        $members = User::where('user_type', 'Member')->orderBy('created_at','desc')->paginate(5);
         return view('livewire.members',[
             'members' => $members,
         ]);
