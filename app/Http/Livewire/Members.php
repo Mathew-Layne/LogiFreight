@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -35,6 +36,7 @@ class Members extends Component
             'address' => $this->address,
             'city' => $this->city,
             'parish' => $this->parish,
+            'password' => Hash::make('password'),
         ]);
         return redirect()->route('members');
     }
