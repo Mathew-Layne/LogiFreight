@@ -22,7 +22,7 @@ Route::get('/', function () {
 Route::view('login', 'login')->name('login')->middleware('authorized');
 Route::view('register', 'register')->name('register')->middleware('authorized');
 Route::post('logout', [LogoutController::class, 'logout'])->name('logout');
-Route::view('alert', 'quickAlerts')->name('quickAlerts');
+
 
 
 Route::group(['middleware' => 'auth'], function () {
@@ -34,4 +34,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::view('/dashboard/admin/alerts', 'alerts')->name('alerts');
     Route::view('/dashboard/admin', 'dashboard')->name('dashboard.admin')->middleware('admin');
     Route::view('/dashboard/member', 'member-dashboard')->name('dashboard.member')->middleware('member');
+    Route::view('/dashboard/member/alert', 'quickAlerts')->name('quickAlerts')->middleware('member');
 });
