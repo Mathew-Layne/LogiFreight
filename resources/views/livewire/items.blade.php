@@ -49,7 +49,7 @@
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                            Mailbox
                                         </label>
-                                        <input type="email" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="maibox" placeholder="Enter Email Address">
+                                        <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="maibox" placeholder="Enter Email Address">
                                         @error('mailbox')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
                                     </div>

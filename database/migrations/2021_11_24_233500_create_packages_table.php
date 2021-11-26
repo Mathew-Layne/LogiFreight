@@ -16,7 +16,7 @@ class CreatePackagesTable extends Migration
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('package_type_id')->constrained('package_types')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('package_type_id')->constrained('package_types')->onDelete('cascade')->onUpdate('cascade')->nullable();
             $table->string('mailbox');
             $table->decimal('weight', 8,2);
             $table->string('merchant');
@@ -25,7 +25,7 @@ class CreatePackagesTable extends Migration
             $table->decimal('estimated_cost');
             $table->string('shippers_tracking_no')->nullable();
             $table->string('internal_tracking_no')->nullable();
-            $table->string('status');
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }
