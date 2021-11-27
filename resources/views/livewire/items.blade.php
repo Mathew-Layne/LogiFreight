@@ -27,19 +27,8 @@
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                             Member Name
                                         </label>
-                                        <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="member_name" placeholder="Enter First Name">
+                                        <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="member_name" placeholder="Enter Member Name">
                                         @error('member_name')<span class="text-xs text-red-600">{{
-                                            $message }}</span>@enderror
-                                    </div>
-                                </div>
-
-                                <div class="w-full lg:w-12/12 px-4">
-                                    <div class="relative w-full mb-3">
-                                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                                            Last Name
-                                        </label>
-                                        <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="last_name" placeholder="Enter Last Name">
-                                        @error('last_name')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
                                     </div>
                                 </div>
@@ -74,7 +63,19 @@
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                             Merchant
                                         </label>
-                                        <input disabled type="text" inputmode="numeric" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="merchant" placeholder="Enter Mailbox">
+                                        <select wire:model="merchant" name="status" id="" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                                            <option value="">Choose a Merchant...</option>
+                                            <option value="Amazon">Amazon</option>
+                                            <option value="Ebay">Ebay</option>
+                                            <option value="Fashion Nova">Fashion Nova</option>
+                                            <option value="NewEgg">NewEgg</option>
+                                            <option value="Shein">Shein</option>
+                                            <option value="Bath and Body Works">Bath and Body Works</option>
+                                            <option value="Forever 21">Forever 21</option>
+                                            <option value="Old Navy">Old Navy</option>
+                                            <option value="Old Navy">AliExpress</option>
+                                            <option value="Other">Other</option>
+                                        </select>
                                         @error('merchant')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
                                     </div>
@@ -87,7 +88,17 @@
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                             Shipper
                                         </label>
-                                        <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="shipper" placeholder="Enter Phone Number">
+                                        <select wire:model="shipper" name="status" id="" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                                            <option value="">Choose a Shipper...</option>
+                                            <option value="Amazon Logistics">Amazon Logistics</option>
+                                            <option value="USPS">USPS</option>
+                                            <option value="US Post">US Post</option>
+                                            <option value="DHL">DHL</option>
+                                            <option value="FedEx">FEDEx</option>
+                                            <option value="LaserShip">LaserShip</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+
                                         @error('shipper')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
                                     </div>
@@ -100,7 +111,7 @@
                                         </label>
                                         <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="trackingNo" placeholder="Enter Street Address">
 
-                                        @error('address')<span class="text-xs text-red-600">{{
+                                        @error('trackingNo')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
                                         
                                     </div>
@@ -110,7 +121,7 @@
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                             Internal Tracking
                                         </label>
-                                        <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="internalTrackingNo">
+                                        <input disabled type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="internalTrackingNo">
                                         <x-table.button wire:click="createInternalTracking()" type="button" color="gray" class="py-2 px-4 dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-400">Generate</x-table.button>
 
                                         @error('internalTrackingNo')<span class="text-xs text-red-600">{{
