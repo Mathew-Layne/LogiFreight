@@ -341,7 +341,7 @@
                                     </div>
                                 </div>
                                 <div class="ml-3 mt-3 ">
-                                    <x-table.button color="gray" class="py-2 px-4 dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-400">Add Package</x-table.button>
+                                    <x-table.button color="gray" class="py-2 px-4 dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-400">Update Package</x-table.button>
                                 </div>
 
                             </div>
