@@ -38,11 +38,17 @@
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                            Mailbox
                                         </label>
-                                        <input disabled type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" 
-                                        wire:model="mailBox" placeholder="Enter Email Address">
-                                        @error('mailBox')<span class="text-xs text-red-600">{{
-                                            $message }}</span>@enderror
-                                            <x-table.button wire:click="createMailbox()" type="button" color="gray" class="py-2 px-4 dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-400">Generate</x-table.button>
+                                        <div class="flex">
+                                            <input disabled type="text"
+                                                class="w-full border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring ease-linear transition-all duration-150"
+                                                wire:model="mailBox" placeholder="Enter Email Address">
+                                            @error('mailBox')<span class="text-xs text-red-600">{{
+                                                $message }}</span>@enderror
+                                            <x-table.button wire:click="createMailbox()" type="button" color="gray"
+                                                class="py-2 px-1 dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-400">Generate
+                                            </x-table.button>
+                                        </div>
+                                        
                                     </div>
                                     
                                 </div>
@@ -121,8 +127,14 @@
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                             Internal Tracking
                                         </label>
-                                        <input disabled type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="internalTrackingNo">
-                                        <x-table.button wire:click="createInternalTracking()" type="button" color="gray" class="py-2 px-4 dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-400">Generate</x-table.button>
+                                        <div class="flex">
+                                            <input type="text"
+                                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                                wire:model="internalTrackingNo">
+                                            <x-table.button wire:click="createInternalTracking()" type="button" color="gray"
+                                                class="py-2 px-4 dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-400">Generate</x-table.button>
+                                        </div>
+                                        
 
                                         @error('internalTrackingNo')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
