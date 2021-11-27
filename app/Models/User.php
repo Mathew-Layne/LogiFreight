@@ -45,4 +45,7 @@ class User extends Authenticatable
     public function quickAlerts(){
         return $this->hasMany(QuickAlert::class);
     }
+    public function packages(){
+        return $this->hasMany(Package::class);
+    }
 }
