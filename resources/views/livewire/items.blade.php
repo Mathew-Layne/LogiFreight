@@ -27,8 +27,8 @@
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                             Member Name
                                         </label>
-                                        <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="member_name" placeholder="Enter Member Name">
-                                        @error('member_name')<span class="text-xs text-red-600">{{
+                                        <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="memberName" placeholder="Enter Member Name">
+                                        @error('memberName')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
                                     </div>
                                 </div>
@@ -36,21 +36,18 @@
                                 <div class="w-full lg:w-6/12 px-4">
                                     <div class="relative w-full mb-3">
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                                           Mailbox
+                                            Mailbox
                                         </label>
                                         <div class="flex">
-                                            <input disabled type="text"
-                                                class="w-full border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring ease-linear transition-all duration-150"
-                                                wire:model="mailBox" placeholder="Enter Email Address">
+                                            <input disabled type="text" class="w-full border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring ease-linear transition-all duration-150" wire:model="mailBox">
                                             @error('mailBox')<span class="text-xs text-red-600">{{
                                                 $message }}</span>@enderror
-                                            <x-table.button wire:click="createMailbox()" type="button" color="gray"
-                                                class="py-2 px-1 dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-400">Generate
+                                            <x-table.button wire:click="createMailbox()" type="button" color="gray" class="py-2 px-1 dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-400">Generate
                                             </x-table.button>
                                         </div>
-                                        
+
                                     </div>
-                                    
+
                                 </div>
 
                                 <div class="w-full lg:w-6/12 px-4">
@@ -63,6 +60,18 @@
                                             $message }}</span>@enderror
                                     </div>
                                 </div>
+
+                                <div class="w-full lg:w-6/12 px-4">
+                                    <div class="relative w-full mb-3">
+                                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
+                                            Cost
+                                        </label>
+                                        <input type="text" inputmode="numeric" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="value" placeholder="Enter Cost">
+                                        @error('value')<span class="text-xs text-red-600">{{
+                                            $message }}</span>@enderror
+                                    </div>
+                                </div>
+
 
                                 <div class="w-full lg:w-6/12 px-4">
                                     <div class="relative w-full mb-3">
@@ -115,11 +124,11 @@
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                             Tracking Number
                                         </label>
-                                        <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="trackingNo" placeholder="Enter Street Address">
+                                        <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="trackingNo" placeholder="Enter Shippers Tracking Number">
 
                                         @error('trackingNo')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
-                                        
+
                                     </div>
                                 </div>
                                 <div class="w-full lg:w-6/12 px-4">
@@ -128,15 +137,10 @@
                                             Internal Tracking
                                         </label>
                                         <div class="flex">
-                                            <input type="text"
-                                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                                                wire:model="internalTrackingNo">
-                                            <x-table.button wire:click="createInternalTracking()" type="button" color="gray"
-                                                class="py-2 px-4 dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-400">Generate</x-table.button>
+                                            <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="internalTracking">
+                                            <x-table.button wire:click="createInternalTracking()" type="button" color="gray" class="py-2 px-4 dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-400">Generate</x-table.button>
                                         </div>
-                                        
-
-                                        @error('internalTrackingNo')<span class="text-xs text-red-600">{{
+                                        @error('internalTracking')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
                                     </div>
                                 </div>
@@ -148,19 +152,11 @@
                                         <select wire:model="status" name="status" id="" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
                                             <option value="">Choose a Status...</option>
                                             <option value="At warehouse">At warehouse</option>
-                                            <option value="St Elizabeth">In Transit</option>
-                                            <option value="Clarendon">Ready for Pick-up</option>
-                                            <option value="St Catherine">Delivered</option>
-                                            <option value="Trelawny">Trelawny</option>
-                                            <option value="Manchester">Manchester</option>
-                                            <option value="Portland">Portland</option>
-                                            <option value="Westmoreland">Westmoreland</option>
-                                            <option value="St Thomas">St Thomas</option>
-                                            <option value="St Mary">St Mary</option>
-                                            <option value="St James">St James</option>
-                                            <option value="Hanover">Hanover</option>
-                                            <option value="St Andrew">St Andrew</option>
-                                            <option value="Kingston">Kingston</option>
+                                            <option value="In Transit">In Transit to Jamaica</option>
+                                            <option value="Arrived In Jamaica">Arrived In Jamaica</option>
+
+                                            <option value="Ready for Pick-up">Ready for Pick-up</option>
+                                            <option value="Delivered">Delivered</option>
                                         </select>
                                         @error('status')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
@@ -195,9 +191,9 @@
                 <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
 
 
-                    <form wire:submit.prevent="updateMember()">
+                    <form wire:submit.prevent="updatePackage()">
                         <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
-                            Member Details
+                            Package Details
                         </h6>
 
                         <div class="flex flex-wrap">
@@ -206,43 +202,10 @@
                                 <div class="w-full lg:w-12/12 px-4">
                                     <div class="relative w-full mb-3">
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                                            First Name
+                                            Member Name
                                         </label>
-                                        <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="first_name" placeholder="Enter First Name">
-                                        @error('first_name')<span class="text-xs text-red-600">{{
-                                            $message }}</span>@enderror
-                                    </div>
-                                </div>
-
-                                <div class="w-full lg:w-12/12 px-4">
-                                    <div class="relative w-full mb-3">
-                                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                                            Last Name
-                                        </label>
-                                        <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="last_name" placeholder="Enter Last Name">
-                                        @error('last_name')<span class="text-xs text-red-600">{{
-                                            $message }}</span>@enderror
-                                    </div>
-                                </div>
-
-                                <div class="w-full lg:w-6/12 px-4">
-                                    <div class="relative w-full mb-3">
-                                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                                            Email Address
-                                        </label>
-                                        <input type="email" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="email" placeholder="Enter Email Address">
-                                        @error('email')<span class="text-xs text-red-600">{{
-                                            $message }}</span>@enderror
-                                    </div>
-                                </div>
-
-                                <div class="w-full lg:w-6/12 px-4">
-                                    <div class="relative w-full mb-3">
-                                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                                            TRN
-                                        </label>
-                                        <input type="text" inputmode="numeric" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="trn" placeholder="Enter TRN">
-                                        @error('trn')<span class="text-xs text-red-600">{{
+                                        <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="memberName" placeholder="Enter Member Name">
+                                        @error('memberName')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
                                     </div>
                                 </div>
@@ -252,8 +215,60 @@
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                             Mailbox
                                         </label>
-                                        <input disabled type="text" inputmode="numeric" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="mailbox" placeholder="Enter TRN">
-                                        @error('mailbox')<span class="text-xs text-red-600">{{
+                                        <div class="flex">
+                                            <input disabled type="text" class="w-full border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring ease-linear transition-all duration-150" wire:model="mailBox">
+                                            @error('mailBox')<span class="text-xs text-red-600">{{
+                                                $message }}</span>@enderror
+                                            <x-table.button wire:click="createMailbox()" type="button" color="gray" class="py-2 px-1 dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-400">Generate
+                                            </x-table.button>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="w-full lg:w-6/12 px-4">
+                                    <div class="relative w-full mb-3">
+                                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
+                                            Weight LBS
+                                        </label>
+                                        <input type="text" inputmode="numeric" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="weight" placeholder="Enter Weight">
+                                        @error('weight')<span class="text-xs text-red-600">{{
+                                            $message }}</span>@enderror
+                                    </div>
+                                </div>
+
+                                <div class="w-full lg:w-6/12 px-4">
+                                    <div class="relative w-full mb-3">
+                                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
+                                            Cost (USD)
+                                        </label>
+                                        <input type="text" inputmode="numeric" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="value" placeholder="Enter Cost">
+                                        @error('value')<span class="text-xs text-red-600">{{
+                                            $message }}</span>@enderror
+                                    </div>
+                                </div>
+
+
+                                <div class="w-full lg:w-6/12 px-4">
+                                    <div class="relative w-full mb-3">
+                                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
+                                            Merchant
+                                        </label>
+                                        <select wire:model="merchant" name="status" id="" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                                            <option value="">Choose a Merchant...</option>
+                                            <option value="Amazon">Amazon</option>
+                                            <option value="Ebay">Ebay</option>
+                                            <option value="Fashion Nova">Fashion Nova</option>
+                                            <option value="NewEgg">NewEgg</option>
+                                            <option value="Shein">Shein</option>
+                                            <option value="Bath and Body Works">Bath and Body Works</option>
+                                            <option value="Forever 21">Forever 21</option>
+                                            <option value="Old Navy">Old Navy</option>
+                                            <option value="Old Navy">AliExpress</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                        @error('merchant')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
                                     </div>
                                 </div>
@@ -263,10 +278,20 @@
                                 <div class="w-full lg:w-6/12 px-4">
                                     <div class="relative w-full mb-3">
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                                            Phone Number
+                                            Shipper
                                         </label>
-                                        <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="phone" placeholder="Enter Phone Number">
-                                        @error('phone')<span class="text-xs text-red-600">{{
+                                        <select wire:model="shipper" name="status" id="" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                                            <option value="">Choose a Shipper...</option>
+                                            <option value="Amazon Logistics">Amazon Logistics</option>
+                                            <option value="USPS">USPS</option>
+                                            <option value="US Post">US Post</option>
+                                            <option value="DHL">DHL</option>
+                                            <option value="FedEx">FEDEx</option>
+                                            <option value="LaserShip">LaserShip</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+
+                                        @error('shipper')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
                                     </div>
                                 </div>
@@ -274,51 +299,49 @@
                                 <div class="w-full lg:w-12/12 px-4">
                                     <div class="relative w-full mb-3">
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                                            Street Address
+                                            Tracking Number
                                         </label>
-                                        <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="address" placeholder="Enter Street Address">
-                                        @error('address')<span class="text-xs text-red-600">{{
+                                        <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="trackingNo" placeholder="Enter Shippers Tracking Number">
+
+                                        @error('trackingNo')<span class="text-xs text-red-600">{{
+                                            $message }}</span>@enderror
+
+                                    </div>
+                                </div>
+                                <div class="w-full lg:w-6/12 px-4">
+                                    <div class="relative w-full mb-3">
+                                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
+                                            Internal Tracking
+                                        </label>
+                                        <div class="flex">
+                                            <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="internalTracking">
+                                            <x-table.button wire:click="createInternalTracking()" type="button" color="gray" class="py-2 px-4 dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-400">Generate</x-table.button>
+                                        </div>
+                                        @error('internalTracking')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
                                     </div>
                                 </div>
                                 <div class="w-full lg:w-6/12 px-4">
                                     <div class="relative w-full mb-3">
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                                            City
+                                            Status
                                         </label>
-                                        <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="city" placeholder="Enter City">
-                                        @error('city')<span class="text-xs text-red-600">{{
-                                            $message }}</span>@enderror
-                                    </div>
-                                </div>
-                                <div class="w-full lg:w-6/12 px-4">
-                                    <div class="relative w-full mb-3">
-                                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                                            Parish
-                                        </label>
-                                        <select wire:model="parish" name="parish" id="" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
-                                            <option value="">Choose a Parish...</option>
-                                            <option value="St Ann">St Ann</option>
-                                            <option value="St Elizabeth">St Elizabeth</option>
-                                            <option value="Clarendon">Clarendon</option>
-                                            <option value="St Catherine">St Catherine</option>
-                                            <option value="Trelawny">Trelawny</option>
-                                            <option value="Manchester">Manchester</option>
-                                            <option value="Portland">Portland</option>
-                                            <option value="Westmoreland">Westmoreland</option>
-                                            <option value="St Thomas">St Thomas</option>
-                                            <option value="St Mary">St Mary</option>
-                                            <option value="St James">St James</option>
-                                            <option value="Hanover">Hanover</option>
-                                            <option value="St Andrew">St Andrew</option>
-                                            <option value="Kingston">Kingston</option>
+                                        <select wire:model="status" name="status" id="" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                                            <option value="">Choose a Status...</option>
+                                            <option value="At warehouse">At warehouse</option>
+                                            <option value="In Transit">In Transit to Jamaica</option>
+                                            <option value="Arrived In Jamaica">Arrived In Jamaica</option>
+
+                                            <option value="Ready for Pick-up">Ready for Pick-up</option>
+                                            <option value="Delivered">Delivered</option>
+
                                         </select>
-                                        @error('parish')<span class="text-xs text-red-600">{{
+                                        @error('status')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
                                     </div>
                                 </div>
                                 <div class="ml-3 mt-3 ">
-                                    <x-table.button color="gray" class="py-2 px-4 dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-400">Update Package</x-table.button>
+                                    <x-table.button color="gray" class="py-2 px-4 dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-400">Add Package</x-table.button>
                                 </div>
 
                             </div>
@@ -327,6 +350,8 @@
             </div>
         </div>
     </section>
+
+
     @endif
     <!-- Client Table -->
     <div class="mt-4 mx-4">
@@ -353,10 +378,10 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                          {{-- {{ dd($packages) }} --}}
-                      @forelse($packages as $item)
+                        {{-- {{ dd($packages) }} --}}
+                        @forelse($packages as $item)
                         <tr class="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
-                            <td class="px-4 py-3 text-sm">{{$item->user->first_nm  }}</td>
+                            <td class="px-4 py-3 text-sm">{{$item->user->first_nm }}</td>
                             <td class="px-4 py-3 text-sm">{{ $item->user->last_nm }}</td>
                             <td class="px-4 py-3 text-sm">{{ $item->mailbox }}</td>
                             <td class="px-4 py-3 text-sm">{{ $item->shipper }}</td>
@@ -364,9 +389,9 @@
                             <td class="px-4 py-3 text-sm">{{ $item->weight }}</td>
                             <td class="px-4 py-3 text-sm">{{ $item->estimated_cost }}</td>
                             <td class="px-4 py-3 text-sm">
-                                <x-table.button wire:click="viewMember()" color="blue" class="py-2 px-4">View</x-table.button>
+                                <x-table.button wire:click="viewPackage({{ $item->id }})" color="blue" class="py-2 px-4">View</x-table.button>
                             </td>
-                        @empty
+                            @empty
                         <tr>
                             <td class="text-center py-3" colspan="8">No Records</td>
                         </tr>
@@ -377,7 +402,7 @@
             <div class="px-4 py-3 text-xs font-semibold text-gray-100 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
                 <!-- Pagination -->
                 <div class="">
-                   
+
                 </div>
             </div>
         </div>
@@ -385,4 +410,3 @@
     <!-- ./Client Table -->
 
 </div>
-
