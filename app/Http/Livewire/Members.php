@@ -17,7 +17,7 @@ class Members extends Component
     protected $rules = [
         'first_name' => 'required|string',
         'last_name' => 'required|string',
-        'email' => 'required|email|unique,users,email',
+        'email' => 'required|email|unique:users,email',
         'trn' =>'required',
         'address'=>'required|string',
         'city' =>'required|string',
@@ -28,13 +28,14 @@ class Members extends Component
     public function createMember(){
         $this->validate();
         User::create([
-            'first_name' => $this->first_name,
-            'last_name' => $this->last_name,
+            'first_nm' => $this->first_name,
+            'last_nm' => $this->last_name,
             'email' => $this->email,
             'phone' => $this->phone,
             'mailbox' => "LF".random_int(10002, 99999),
             'address' => $this->address,
             'city' => $this->city,
+            'trn' => $this->trn,
             'parish' => $this->parish,
             'password' => Hash::make('password'),
         ]);
@@ -59,17 +60,30 @@ class Members extends Component
     }
 
     public function updateMember(){
-        $this->validate();
+
+        $this->validate([
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'email' => 'required',
+            'trn' => 'required',
+            'address' => 'required|string',
+            'city' => 'required|string',
+            'parish' => 'required',
+            'phone' => ' required',
+        ]);
+
         User::where('id', $this->memberId)->update([
-            'first_name' => $this->first_name,
-            'last_name' => $this->last_name,
+            'first_nm' => $this->first_name,
+            'last_nm' => $this->last_name,
             'email' => $this->email,
             'phone' =>$this->phone,
             'mailbox' => $this->mailbox,
             'address' => $this->address,
+            'trn' => $this->trn,
             'city'=> $this->city,
             'parish' => $this->parish,
         ]);
+
         return redirect()->route('members');
     }
 

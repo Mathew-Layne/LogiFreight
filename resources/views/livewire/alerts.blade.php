@@ -25,7 +25,7 @@
                         <td class="px-4 py-3 text-sm">{{ $alert->user->last_nm}}</td>
                         <td class="px-4 py-3 text-sm">{{ $alert->tracking_no }}</td>
                         <td class="px-4 py-3 text-sm">{{ $alert->weight  }}</td>
-                        <td class="px-4 py-3 text-sm"><a href="{{ $alert->invoice }}">Invoice</a></td>
+                        <td class="px-4 py-3 text-sm"><a href="{{ url($alert->invoice) }}"><i class="fas fa-file-invoice"></i> Invoice</a></td>
                         <td class="px-4 py-3 text-sm">{{ $alert->created_at }}</td>
                     </tr>
                     @empty

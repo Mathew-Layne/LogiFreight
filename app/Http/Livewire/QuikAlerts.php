@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Package;
 use App\Models\QuickAlert;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -23,10 +24,12 @@ class QuikAlerts extends Component
         'image' => 'required|image|max:1024'
     ];
 
-    public function updateAlert(){
-        $this->validate();
+    public function updateAlert(Request $request){
 
-        $filePath = $this->image->store('invoices', 'public');
+        $this->validate();
+        $filename = $this->image->getClientOriginalName();
+        // dd($filename);
+        $filePath = $this->image->storeAs('public', $filename);
          
     
         QuickAlert::create([
