@@ -39,7 +39,7 @@
                                             Mailbox
                                         </label>
                                         <div class="flex">
-                                            <input disabled type="text" class="w-full border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring ease-linear transition-all duration-150" wire:model="mailBox">
+                                            <input type="text" class="w-full border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring ease-linear transition-all duration-150" wire:model="mailBox">
                                             @error('mailBox')<span class="text-xs text-red-600">{{
                                                 $message }}</span>@enderror
                                             <x-table.button wire:click="createMailbox()" type="button" color="gray" class="py-2 px-1 dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-400">Generate

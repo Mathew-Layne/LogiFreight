@@ -1,6 +1,6 @@
 <div>
-    @if (session()->has('message'))
-    <div class="w-full text-white bg-emerald-500">
+    @if(session()->has('message'))
+    <div x-data="{show:true}" x-init="setTimeout(()=>show = false, 3000)" x-show="show" class="w-full text-white bg-emerald-500">
         <div class="container flex items-center justify-between px-6 py-4 mx-auto">
             <div class="flex">
                 <svg viewBox="0 0 40 40" class="w-6 h-6 fill-current">
@@ -16,6 +16,56 @@
             </button>
         </div>
     </div>
+    @endif
+
+    @if($manifestUpdate)
+
+    <section class="absolute left-0 top-0 flex justify-center items-center z-10 bg-black bg-opacity-75 w-full py-1">
+        <div class="w-full lg:w-6/12 px-4 mt-6">
+            <div class="bg-white flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0 dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                <div class="rounded-t bg-white mb-0 px-6 py-6 dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800">
+                    <div class="text-center flex justify-between">
+                        <h6 class="text-blueGray-700 text-xl font-bold">
+                            Update Manifest
+                        </h6>
+                        <i wire:click="$set('manifestUpdate', false)" class="fas fa-times text-2xl cursor-pointer"></i>
+                    </div>
+                </div>
+                <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+
+                    <form wire:submit.prevent="manifestUpdated()">
+                        <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                            Manifest Details
+                        </h6>
+
+                        <div class="flex flex-wrap">
+
+                            <div class="flex flex-wrap">
+                                <div class="w-full lg:w-12/12 px-4">
+                                    <div class="relative w-full mb-3">
+                                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
+                                            Status
+                                        </label>
+                                        <select class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" wire:model="manifestStatus">
+                                            <option value="">Select</option>
+                                            <option value="At Warehouse">At Warehouse</option>
+                                            <option value="In Transit to Jamaica">In Transit to Jamaica</option>
+                                            <option value="Arrived in Jamaica">Arrived in Jamaica</option>
+                                            <option value="Ready for Pickup">Ready for Pickup</option>
+                                        </select>
+                                        @error('manifestStatus')<span class="text-xs text-red-600">{{ $message }}</span>@enderror
+                                    </div>
+                                </div>
+                                <div class="ml-3 mt-3 ">
+                                    <x-table.button color="gray" class="py-2 px-4 dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-400">Update Manifest</x-table.button>
+                                </div>
+
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
     @endif
 
     @if($viewManifest)
@@ -44,8 +94,6 @@
                                         <th class="px-4 py-3">Cost</th>
                                         <th class="px-4 py-3">Tracking Number</th>
                                         <th class="px-4 py-3">Status</th>
-
-
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
@@ -197,6 +245,7 @@
                             <td class="px-4 py-3 text-sm">{{ $manifests->created_at }}</td>
                             <td class="px-4 py-3 text-sm">
                                 <x-table.button wire:click="viewManifest({{ $manifests->id }})" color="blue" class="py-2 px-4">View</x-table.button>
+                                <x-table.button wire:click="updateManifest({{ $manifests->id }})" color="blue" class="py-2 px-4">Update</x-table.button>
                             </td>
                             @empty
                         <tr>

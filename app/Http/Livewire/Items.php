@@ -21,39 +21,66 @@ class Items extends Component
 
     public function createPackage()
     {
-        $name = explode(" ", $this->memberName);
-        $id = User::create([
-            'first_nm' => $name[0],
-            'last_nm' => $name[1],
-            'email' => $name[0] . "_" . $name[1] . "@email.com",
-            'password' => Hash::make('password'),
-            'trn' => "000-000-000",
-            'phone' => "876-111-111",
-            'address' => "unknown",
-            'mailbox' => $this->mailBox,
-            'city' => "unknown",
-            'parish' => "unknown",
-        ])->id;
+        $mailbox = User::where('mailbox', $this->mailBox)->get();
 
-        $startDate = date('Y-m-d', (strtotime('Monday')));
-        $manifestID = Manifest::where('start_date', $startDate)->value('id');
-        Package::create([
-            'user_id' => $id,
-            'package_type_id' => 1,
-            'manifest_id' => $manifestID,
-            'shipper' => $this->shipper,
-            'shippers_tracking_no' => $this->trackingNo,
-            'estimated_cost' => $this->value,
-            'weight' => $this->weight,
-            'mailbox' => $this->mailBox,
-            'merchant' => $this->merchant,
-            'internal_tracking_no' => $this->internalTracking,
-            'status' => $this->status,
-        ]);
-        $manifestCount = Package::where('manifest_id', $manifestID)->count();
-        Manifest::where('id', $manifestID)->update([
-            'no_of_items' => $manifestCount,
-        ]);
+        if (!$mailbox) {
+            $name = explode(" ", $this->memberName);
+            $id = User::create([
+                'first_nm' => $name[0],
+                'last_nm' => $name[1],
+                'email' => $name[0] . "_" . $name[1] . "@email.com",
+                'password' => Hash::make('password'),
+                'trn' => "000-000-000",
+                'phone' => "876-111-111",
+                'address' => "unknown",
+                'mailbox' => $this->mailBox,
+                'city' => "unknown",
+                'parish' => "unknown",
+            ])->id;
+
+            $startDate = date('Y-m-d', (strtotime('Monday')));
+            $manifestID = Manifest::where('start_date', $startDate)->value('id');
+            Package::create([
+                'user_id' => $id,
+                'package_type_id' => 1,
+                'manifest_id' => $manifestID,
+                'shipper' => $this->shipper,
+                'shippers_tracking_no' => $this->trackingNo,
+                'estimated_cost' => $this->value,
+                'weight' => $this->weight,
+                'mailbox' => $this->mailBox,
+                'merchant' => $this->merchant,
+                'internal_tracking_no' => $this->internalTracking,
+                'status' => $this->status,
+            ]);
+            $manifestCount = Package::where('manifest_id', $manifestID)->count();
+            Manifest::where('id', $manifestID)->update([
+                'no_of_items' => $manifestCount,
+            ]);
+        } else {
+            $startDate = date('Y-m-d', (strtotime('Monday')));
+            $manifestID = Manifest::where('start_date', $startDate)->value('id');
+
+            Package::create([
+                'user_id' => User::where('mailbox', $this->mailBox)->value('id'),
+                'package_type_id' => 1,
+                'manifest_id' => $manifestID,
+                'shipper' => $this->shipper,
+                'shippers_tracking_no' => $this->trackingNo,
+                'estimated_cost' => $this->value,
+                'weight' => $this->weight,
+                'mailbox' => $this->mailBox,
+                'merchant' => $this->merchant,
+                'internal_tracking_no' => $this->internalTracking,
+                'status' => $this->status,
+            ]);
+            
+            $manifestCount = Package::where('manifest_id', $manifestID)->count();
+            Manifest::where('id', $manifestID)->update([
+                'no_of_items' => $manifestCount,
+            ]);
+
+        }
         return redirect()->route('items');
     }
 

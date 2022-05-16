@@ -12,7 +12,8 @@ class Manifest extends Component
     use WithPagination;
     public $addManifest = false;
     public $viewManifest = false;
-    public $awb, $startDate, $endDate, $dateReceived, $singleManifest;
+    public $manifestUpdate = false;
+    public $awb, $startDate, $endDate, $dateReceived, $singleManifest, $manifestStatus, $manifestId;
 
     public function createManifest()
     {
@@ -31,6 +32,22 @@ class Manifest extends Component
       $this->singleManifest = Package::with('user')->where('manifest_id', $id)->get();
     //   dd($this->singleManifest);
     }
+
+    public function updateManifest($id){
+        $this->manifestUpdate = true;
+        $this->manifestId = $id;
+        
+    }
+
+    public function manifestUpdated(){
+        Package::where('manifest_id', $this->manifestId)->update([
+            'status' => $this->manifestStatus,
+        ]);
+        session()->flash('message', 'Manifest Updated to ' . $this->manifestStatus . '.');
+        return redirect()->to('/dashboard/admin/manifest');
+    }
+
+
 
     public function render()
     {
