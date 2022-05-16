@@ -6,13 +6,16 @@ use App\Models\Package;
 use App\Models\QuickAlert;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Livewire\WithPagination;
 
 class QuikAlerts extends Component
 {
     use WithFileUploads;
-    public $addAlert = true;
+    use WithPagination;
+    public $addAlert = false;
     public $weight, $trackingNo, $shipper, $value, $image, $description;
 
     protected $rules = [
@@ -53,12 +56,16 @@ class QuikAlerts extends Component
             'weight'=> $this->weight,
             'mailbox' =>$mailbox,
         ]);
+
+        $this->addAlert = false;
         return redirect()->route('quickAlerts');
 
     }
 
     public function render()
     {
-        return view('livewire.quik-alerts');
+        return view('livewire.quik-alerts',[
+            'alerts' => QuickAlert::where('user_id', Auth::id())->paginate(5)
+        ]);
     }
 }

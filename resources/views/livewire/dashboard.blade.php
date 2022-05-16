@@ -14,7 +14,7 @@
             </div>
             <div class="text-right">
                 <p class="text-2xl">15</p>
-                <p>Clients</p>
+                <p>Recent Items</p>
             </div>
         </div>
         <div
@@ -29,7 +29,7 @@
             </div>
             <div class="text-right">
                 <p class="text-2xl">35</p>
-                <p>Appointments</p>
+                <p>New Signup</p>
             </div>
         </div>
         <div
@@ -44,7 +44,7 @@
             </div>
             <div class="text-right">
                 <p class="text-2xl">$11,257</p>
-                <p>Todays Sales</p>
+                <p>Office Items</p>
             </div>
         </div>
         <div
@@ -60,7 +60,7 @@
             </div>
             <div class="text-right">
                 <p class="text-2xl">$75,257</p>
-                <p>Total Sales</p>
+                <p>Collected Today</p>
             </div>
         </div>
     </div>

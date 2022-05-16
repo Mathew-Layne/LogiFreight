@@ -52,7 +52,7 @@
                     <div class="mt-5 w-full flex space-x-3">
                         <div class="w-1/2">
                             <label for="password" class="sc-bqyKva ePvcBv">Password</label>
-                            <input type="password" wire:model='password'
+                            <input type="password" wire:model.lazy='password'
                                 class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent "
                                 placeholder="Enter Password">
                                 <div>@error('password')<span class="text-xs text-red-600 -mb-2">{{ $message }}</span>@enderror
@@ -61,7 +61,7 @@
                     
                         <div class="w-1/2 ">
                             <label for="password" class="sc-bqyKva ePvcBv">Confirm Password</label>
-                            <input type="password" wire:model='passwordConfirmation'
+                            <input type="password" wire:model.lazy='passwordConfirmation'
                                 class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent "
                                 placeholder="Re-Enter Password">
                                 <div>@error('password')<span class="text-xs text-red-600 -mb-2">{{ $message }}</span>@enderror
