@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Manifest as ModelsManifest;
+use App\Models\Package;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -10,7 +11,8 @@ class Manifest extends Component
 {
     use WithPagination;
     public $addManifest = false;
-    public $awb, $startDate, $endDate, $dateReceived;
+    public $viewManifest = false;
+    public $awb, $startDate, $endDate, $dateReceived, $singleManifest;
 
     public function createManifest()
     {
@@ -22,6 +24,12 @@ class Manifest extends Component
             'date_received' => $this->dateReceived,
         ]);
         session()->flash('message', 'Manifest created.');
+    }
+
+    public function viewManifest($id){
+        $this->viewManifest = true;
+      $this->singleManifest = Package::with('user')->where('manifest_id', $id)->get();
+    //   dd($this->singleManifest);
     }
 
     public function render()
