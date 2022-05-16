@@ -10,6 +10,10 @@ class Manifest extends Model
     use HasFactory;
     
     protected $fillable = [
-        'manifest_no',	'start_date', 'end_date', 'no_of_items'
+        'awb',	'start_date', 'end_date', 'no_of_items', 'date_received',
     ];
+
+    public function packages(){
+        return $this->hasMany(Package::class);
+    }
 }

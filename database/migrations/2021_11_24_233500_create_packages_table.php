@@ -17,6 +17,7 @@ class CreatePackagesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('package_type_id')->constrained('package_types')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('manifest_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->string('mailbox');
             $table->decimal('weight');
             $table->string('merchant')->nullable();

@@ -15,10 +15,11 @@ class CreateManifestsTable extends Migration
     {
         Schema::create('manifests', function (Blueprint $table) {
             $table->id();
-            $table->string('manifest_no');
             $table->date('start_date');
             $table->date('end_date');
-            $table->integer('no_of_items');
+            $table->integer('no_of_items')->nullable();
+            $table->string('awb');
+            $table->date('date_received');
             $table->timestamps();
         });
     }
