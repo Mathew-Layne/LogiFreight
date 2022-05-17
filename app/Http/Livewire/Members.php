@@ -95,7 +95,7 @@ class Members extends Component
     }
 
     public function updateRole(){
-        User::where('id', $this->memberId)->update([
+        User::where('id', $this->memberID)->update([
             'user_type' => $this->role,
         ]);
         session()->flash('message', 'Updated to ' . $this->role . '.');
