@@ -38,8 +38,8 @@ class Items extends Component
                 'parish' => "unknown",
             ])->id;
 
-            $startDate = date('Y-m-d', (strtotime('Monday')));
-            $manifestID = Manifest::where('start_date', $startDate)->value('id');
+            $endDate = date('Y-m-d', (strtotime('Friday')));   
+            $manifestID = Manifest::where('end_date', $endDate)->value('id');
             Package::create([
                 'user_id' => $id,
                 'package_type_id' => 1,
@@ -58,8 +58,8 @@ class Items extends Component
                 'no_of_items' => $manifestCount,
             ]);
         } else {
-            $startDate = date('Y-m-d', (strtotime('Monday')));
-            $manifestID = Manifest::where('start_date', $startDate)->value('id');
+            $endDate = date('Y-m-d', (strtotime('Friday')));   
+            $manifestID = Manifest::where('start_date', $endDate)->value('id');
 
             Package::create([
                 'user_id' => User::where('mailbox', $this->mailBox)->value('id'),
@@ -74,7 +74,7 @@ class Items extends Component
                 'internal_tracking_no' => $this->internalTracking,
                 'status' => $this->status,
             ]);
-            
+
             $manifestCount = Package::where('manifest_id', $manifestID)->count();
             Manifest::where('id', $manifestID)->update([
                 'no_of_items' => $manifestCount,

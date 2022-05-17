@@ -12,7 +12,8 @@ class Members extends Component
     use WithPagination;
     public $editMember = false;
     public $addMember = false;
-    public $first_name, $last_name, $trn, $email, $address, $city, $mailbox, $parish, $phone, $memberId;
+    public $updateRole = false;
+    public $first_name, $last_name, $trn, $email, $address, $city, $mailbox, $parish, $phone, $memberId, $memberID;
 
     protected $rules = [
         'first_name' => 'required|string',
@@ -85,6 +86,20 @@ class Members extends Component
         ]);
 
         return redirect()->route('members');
+    }
+
+    public function roleUpdate($id){
+        $this->updateRole = true;
+        $this->role = User::where('id', $id)->value('user_type');
+        $this->memberID = $id;
+    }
+
+    public function updateRole(){
+        User::where('id', $this->memberId)->update([
+            'user_type' => $this->role,
+        ]);
+        session()->flash('message', 'Updated to ' . $this->role . '.');
+        return redirect()->to('/dashboard/admin/members');
     }
 
     public function render()
