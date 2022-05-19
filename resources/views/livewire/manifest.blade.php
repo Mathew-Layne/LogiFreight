@@ -20,7 +20,7 @@
 
     @if($manifestUpdate)
 
-    <section class="absolute left-0 top-0 flex justify-center items-center z-10 bg-black bg-opacity-75 w-full py-1">
+    <section class="absolute left-0 top-0 flex justify-center h-screen items-center z-10 bg-black bg-opacity-75 w-full py-1">
         <div class="w-full lg:w-6/12 px-4 mt-6">
             <div class="bg-white flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0 dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                 <div class="rounded-t bg-white mb-0 px-6 py-6 dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800">
@@ -71,7 +71,7 @@
     @if($viewManifest)
     <section class="absolute left-0 top-0 flex justify-center items-center h-screen z-10 bg-black bg-opacity-75 w-full py-1">
         <div class="w-full lg:w-8/12 px-4 mt-6">
-            <div class="bg-white flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0 dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+            <div class="bg-white flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0 dark:border-gray-700  dark:text-gray-400 dark:bg-gray-800">
 
                 <div class="mt-4 mx-4">
                     <div class="rounded-t bg-white mb-0 px-6 py-6 dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800">
@@ -81,13 +81,13 @@
                             <i wire:click="$set('viewManifest', false)" class="fas fa-times text-2xl cursor-pointer"></i>
                         </div>
                     </div>
-                    <div class="w-full overflow-hidden rounded-lg shadow-xs">
+                    <div class="w-full h-96 overflow-hidden overflow-y-scroll rounded-lg shadow-xs">
 
 
                         <div class="w-full overflow-x-auto">
                             <table class="w-full">
                                 <thead>
-                                    <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                                    <tr class=" text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                                         <th class="px-4 py-3">Customer Name</th>
                                         <th class="px-4 py-3">Mailbox</th>
                                         <th class="px-4 py-3">Weight</th>
@@ -96,14 +96,14 @@
                                         <th class="px-4 py-3">Status</th>
                                     </tr>
                                 </thead>
-                                <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                                <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800 ">
                                     {{-- {{ dd($package['0']['mailbox']) }} --}}
                                     @forelse($singleManifest as $packages)
                                     <tr class="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
                                         <td class="px-4 py-3 text-sm">{{ $packages['user']['first_nm'] }} {{ $packages['user']['last_nm'] }}</td>
                                         <td class="px-4 py-3 text-sm">{{ $packages['mailbox'] }}</td>
                                         <td class="px-4 py-3 text-sm">{{ $packages['weight'] }}</td>
-                                        <td class="px-4 py-3 text-sm">{{ $packages['estimated_cost'] }}</td>
+                                        <td class="px-4 py-3 text-sm">${{ $packages['estimated_cost'] }}</td>
                                         <td class="px-4 py-3 text-sm">{{ $packages['shippers_tracking_no'] }}</td>
                                         <td class="px-4 py-3 text-sm">{{ $packages['status'] }}</td>
                                         @empty
@@ -131,7 +131,7 @@
 
     @endif
     @if($addManifest)
-    <section class="absolute left-0 top-0 flex justify-center items-center z-10 bg-black bg-opacity-75 w-full py-1">
+    <section class="absolute left-0 top-0 flex justify-center items-center h-screen z-10 bg-black bg-opacity-75 w-full py-1">
         <div class="w-full lg:w-6/12 px-4 mt-6">
             <div class="bg-white flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0 dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                 <div class="rounded-t bg-white mb-0 px-6 py-6 dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800">
